@@ -1,8 +1,8 @@
 <div class="selectedMediafile">
 
-  <p class="fileTitle">fdvdlkvkmdlbdfvxs</p>
-  <p class="fileType">dvxvdsfvcx</p>
-  <p class="fileDuration">5875</p>
+  <p class="fileTitle">{{selectedMediafile.title}}</p>
+  <p class="fileType">{{selectedMediafile.type}}</p>
+  <p class="fileDuration">{{msToTime(selectedMediafile.duration)}}</p>
 
     <button mat-raised-button color="primary">
       <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
@@ -11,4 +11,25 @@
 
 <div class="playSettings">
 
+  <label for="mediaOffset">Воспроизвести с</label>
+  <input type="text" id="mediaOffset">
+
+  <label for="playUntil">Воспроизведение по</label>
+  <input type="text" id="playUntil">
+
+  <label for="startTime">Hачало в эфире</label>
+  <input type="text" id="startTime">
+
+  <label for="durationInEther">Длительность в эфире</label>
+  <input type="text" id="durationInEther">
+
+  <label for="endInEther">Окончание в эфире</label>
+  <input type="text" id="endInEther">
+
+</div>
+
+<div class="btn-wrap">
+  <button mat-raised-button color="primary">Сохранить</button>
+
+  <button mat-raised-button color="primary">Отмена</button>
 </div>

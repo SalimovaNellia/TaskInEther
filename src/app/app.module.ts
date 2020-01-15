@@ -11,13 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material';
+import { MatIconModule } from '@angular/material';
+import { MatStepperModule } from '@angular/material/stepper';
+import { EtherTaskStepsComponent } from './ether-task-steps/ether-task-steps.component';
+import { TimeDurationComponent } from './time-duration/time-duration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EtherFormComponent,
-    MediafilesListComponent
+    MediafilesListComponent,
+    EtherTaskStepsComponent,
+    TimeDurationComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import {MatIconModule} from '@angular/material';
     MatPaginatorModule,
     HttpClientModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import { MedifilesService } from '../services/medifiles.service';
 import { Mediafile } from '../models/Mediafile';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { msToTime } from '../utils/msToTime';
 
 @Component({
   selector: 'app-mediafiles-list',
@@ -10,6 +11,8 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./mediafiles-list.component.scss']
 })
 export class MediafilesListComponent implements OnInit {
+  @Output() mediafileSelected = new EventEmitter<Mediafile>();
+
   selectedMediafile: Mediafile;
   mediafiles: Array<Mediafile>;
   displayedColumns: string[] = ['type', 'title', 'duration'];
@@ -31,8 +34,21 @@ export class MediafilesListComponent implements OnInit {
 
   }
 
-  selectMediafile(row: Mediafile) {
-    console.log(row);
+  selectMediafile(mediafile: Mediafile) {
+    console.log('click')
+    this.selectedMediafile = mediafile;
+  }
+
+  onMediafileChoosed() {
+    this.mediafileSelected.next(this.selectedMediafile);
+  }
+
+  msToTime(duration: number) {
+    if (duration) {
+      return msToTime(duration)
+    } else {
+      return '-'
+    }
   }
 }
 

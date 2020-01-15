@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { MedifilesService } from '../services/medifiles.service';
-import {Mediafile} from '../models/Mediafile';
+import { Mediafile } from '../models/Mediafile';
+import { msToTime } from '../utils/msToTime';
 
 @Component({
   selector: 'app-ether-form',
@@ -9,12 +10,19 @@ import {Mediafile} from '../models/Mediafile';
 })
 export class EtherFormComponent implements OnInit {
 
+  @Input()  selectedMediafile: Mediafile;
+
   constructor() { }
-
-
 
   ngOnInit() {
 
   }
 
+  msToTime(duration: number) {
+    if (duration) {
+      return msToTime(duration)
+    } else {
+      return '-'
+    }
+  }
 }
