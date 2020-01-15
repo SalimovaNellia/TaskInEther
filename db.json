@@ -1,0 +1,13 @@
+{
+  "mediafiles": [
+    { "id": 0, "type": "Видео", "title": "Video-1", "duration": "9872357" },
+    { "id": 1, "type": "Аудио", "title": "Audio-1" },
+    { "id": 2, "type": "Видео", "title": "Video-2", "duration": "8252525" },
+    { "id": 3, "type": "Видео", "title": "Video-3", "duration": "235166" },
+    { "id": 4, "type": "Аудио", "title": "Audio-2" },
+    { "id": 5, "type": "Видео", "title": "Video-4", "duration": "842585" },
+    { "id": 6, "type": "Аудио", "title": "Audio-3" },
+    { "id": 7, "type": "Видео", "title": "Video-5", "duration": "234052" },
+    { "id": 8, "type": "Видео", "title": "Video-6", "duration": "2340522" }
+  ]
+}

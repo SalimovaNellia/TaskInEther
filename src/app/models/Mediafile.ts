@@ -1,7 +1,7 @@
 export interface Mediafile {
   id: number;
   type: MediafileType;
-  name: string;
+  title: string;
   duration: number | null;
 }
 

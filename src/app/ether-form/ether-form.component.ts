@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MedifilesService } from '../services/medifiles.service';
+import {Mediafile} from '../models/Mediafile';
 
 @Component({
   selector: 'app-ether-form',
@@ -9,7 +11,10 @@ export class EtherFormComponent implements OnInit {
 
   constructor() { }
 
+
+
   ngOnInit() {
+
   }
 
 }
