@@ -1,1 +1,7 @@
-<p>time-duration works!</p>
+<div>
+  <p>{{ duration | formatDuration }}</p>
+  <div class="controls">
+    <span class="increase" (click)="increaseDuration()"></span>
+    <span class="reduce" (click)="reduceDuration()"></span>
+  </div>
+</div>

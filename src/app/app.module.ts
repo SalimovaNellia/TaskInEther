@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { EtherTaskStepsComponent } from './ether-task-steps/ether-task-steps.component';
 import { TimeDurationComponent } from './time-duration/time-duration.component';
+import { FormatDurationPipe } from './pipe/format-duration.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TimeDurationComponent } from './time-duration/time-duration.component';
     EtherFormComponent,
     MediafilesListComponent,
     EtherTaskStepsComponent,
-    TimeDurationComponent
+    TimeDurationComponent,
+    FormatDurationPipe
   ],
   imports: [
     BrowserModule,

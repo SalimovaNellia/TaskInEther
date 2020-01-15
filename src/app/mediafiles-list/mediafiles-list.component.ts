@@ -3,7 +3,6 @@ import { MedifilesService } from '../services/medifiles.service';
 import { Mediafile } from '../models/Mediafile';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { msToTime } from '../utils/msToTime';
 
 @Component({
   selector: 'app-mediafiles-list',
@@ -41,14 +40,6 @@ export class MediafilesListComponent implements OnInit {
 
   onMediafileChoosed() {
     this.mediafileSelected.next(this.selectedMediafile);
-  }
-
-  msToTime(duration: number) {
-    if (duration) {
-      return msToTime(duration)
-    } else {
-      return '-'
-    }
   }
 }
 

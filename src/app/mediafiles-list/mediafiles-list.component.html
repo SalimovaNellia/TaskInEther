@@ -13,7 +13,7 @@
 
     <ng-container matColumnDef="duration">
       <th mat-header-cell *matHeaderCellDef> Длительность </th>
-      <td mat-cell *matCellDef="let mediafile"> {{msToTime(mediafile.duration)}} </td>
+      <td mat-cell *matCellDef="let mediafile"> {{mediafile.duration | formatDuration}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
