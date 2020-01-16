@@ -14,6 +14,11 @@
   <div class="setting">
     <h2>Воспроизвести с</h2>
     <app-duration [duration]="mediaOffset" (onDurationChange)="onMediaOffsetChanged($event)"></app-duration>
+
+      <input
+        mdInput
+        type="number"
+        id="myNumber"/>
   </div>
 
  <div class="setting">
@@ -26,10 +31,10 @@
 
   <div class="setting">
     <h2>Hачало в эфире</h2>
-    <app-time [time]="startInEther"></app-time>
+    <app-time [time]="startInEther.getTime()" (onTimeChange)="onStartInEtherChanged($event)"></app-time>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="startPicker" [value]="" >
+      <input matInput [matDatepicker]="startPicker" [value]="startInEther"  (dateChange)="on" >
       <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
       <mat-datepicker #startPicker></mat-datepicker>
     </mat-form-field>
@@ -38,14 +43,15 @@
   <div class="setting">
     <h2>Длительность в эфире</h2>
     <app-duration [duration]="durationInEther"></app-duration>
+    <p>Из: {{selectedMediafile.duration | formatDuration}}</p>
   </div>
 
   <div class="setting">
     <h2>Окончание в эфире</h2>
-    <app-time [time]="endInEther"></app-time>
+    <app-time [time]="endInEther.getTime()"></app-time>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="endPicker" >
+      <input matInput [matDatepicker]="endPicker" [value]="endInEther">
       <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
       <mat-datepicker #endPicker></mat-datepicker>
     </mat-form-field>

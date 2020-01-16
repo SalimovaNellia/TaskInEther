@@ -18,6 +18,7 @@ import { DurationComponent } from './duration/duration.component';
 import { FormatDurationPipe } from './pipe/format-duration.pipe';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TimeComponent } from './time/time.component';
+import { FormatTimePipe } from './pipe/format-time.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TimeComponent } from './time/time.component';
     DurationComponent,
     FormatDurationPipe,
     TimeComponent,
-    TimeComponent
+    TimeComponent,
+    FormatTimePipe
   ],
   imports: [
     BrowserModule,
