@@ -11,11 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material';
+import {MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { EtherTaskStepsComponent } from './ether-task-steps/ether-task-steps.component';
 import { TimeDurationComponent } from './time-duration/time-duration.component';
 import { FormatDurationPipe } from './pipe/format-duration.pipe';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -35,9 +36,15 @@ import { FormatDurationPipe } from './pipe/format-duration.pipe';
     HttpClientModule,
     MatButtonModule,
     MatIconModule,
-    MatStepperModule
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

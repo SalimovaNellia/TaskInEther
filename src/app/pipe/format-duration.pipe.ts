@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FormatDurationPipe implements PipeTransform {
 
   transform(duration: number): string {
-    if (!duration) {
+    if (duration != 0 && !duration) {
       return '-';
     }
 
