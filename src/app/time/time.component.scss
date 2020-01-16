@@ -1,0 +1,33 @@
+:host > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > .controls {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+
+    > span {
+      width: 0;
+      height: 0;
+      display: block;
+
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.increase {
+        border-bottom: 10px solid black;
+        margin-bottom: 3px;
+      }
+
+      &.reduce {
+        border-top: 10px solid black;
+      }
+    }
+  }
+}

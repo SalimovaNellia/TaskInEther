@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimeDurationComponent } from './time-duration.component';
+import { DurationComponent } from './duration.component';
 
-describe('TimeDurationComponent', () => {
-  let component: TimeDurationComponent;
-  let fixture: ComponentFixture<TimeDurationComponent>;
+describe('DurationComponent', () => {
+  let component: DurationComponent;
+  let fixture: ComponentFixture<DurationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimeDurationComponent ]
+      declarations: [ DurationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimeDurationComponent);
+    fixture = TestBed.createComponent(DurationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

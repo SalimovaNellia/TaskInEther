@@ -14,9 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
 import { EtherTaskStepsComponent } from './ether-task-steps/ether-task-steps.component';
-import { TimeDurationComponent } from './time-duration/time-duration.component';
+import { DurationComponent } from './duration/duration.component';
 import { FormatDurationPipe } from './pipe/format-duration.pipe';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { TimeComponent } from './time/time.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     EtherFormComponent,
     MediafilesListComponent,
     EtherTaskStepsComponent,
-    TimeDurationComponent,
-    FormatDurationPipe
+    DurationComponent,
+    FormatDurationPipe,
+    TimeComponent,
+    TimeComponent
   ],
   imports: [
     BrowserModule,

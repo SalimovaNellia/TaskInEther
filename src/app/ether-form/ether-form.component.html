@@ -13,25 +13,23 @@
 
   <div class="setting">
     <h2>Воспроизвести с</h2>
-    <app-time-duration [duration]="mediaOffset"></app-time-duration>
-  </div>
-
-  <div class="setting">
-    <h2>Текущее время плеера</h2>
-    <app-time-duration [duration]="currentPlayTime"></app-time-duration>
+    <app-duration [duration]="mediaOffset" (onDurationChange)="onMediaOffsetChanged($event)"></app-duration>
   </div>
 
  <div class="setting">
+ </div>
+
+ <div class="setting">
    <h2>Воспроизведение по</h2>
-   <app-time-duration [duration]="playUntil"></app-time-duration>
+   <app-duration [duration]="playUntil"></app-duration>
  </div>
 
   <div class="setting">
     <h2>Hачало в эфире</h2>
-    <app-time-duration [duration]="startTime"></app-time-duration>
+    <app-time [time]="startInEther"></app-time>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="startPicker" >
+      <input matInput [matDatepicker]="startPicker" [value]="" >
       <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
       <mat-datepicker #startPicker></mat-datepicker>
     </mat-form-field>
@@ -39,12 +37,12 @@
 
   <div class="setting">
     <h2>Длительность в эфире</h2>
-    <app-time-duration [duration]="durationInEther"></app-time-duration>
+    <app-duration [duration]="durationInEther"></app-duration>
   </div>
 
   <div class="setting">
     <h2>Окончание в эфире</h2>
-    <app-time-duration [duration]="endInEther"></app-time-duration>
+    <app-time [time]="endInEther"></app-time>
 
     <mat-form-field>
       <input matInput [matDatepicker]="endPicker" >
