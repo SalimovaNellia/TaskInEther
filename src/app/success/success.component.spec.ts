@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EtherTaskStepsComponent } from './ether-task-steps.component';
+import { SuccessComponent } from './success.component';
 
-describe('EtherTaskStepsComponent', () => {
-  let component: EtherTaskStepsComponent;
-  let fixture: ComponentFixture<EtherTaskStepsComponent>;
+describe('SuccessComponent', () => {
+  let component: SuccessComponent;
+  let fixture: ComponentFixture<SuccessComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EtherTaskStepsComponent ]
+      declarations: [ SuccessComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EtherTaskStepsComponent);
+    fixture = TestBed.createComponent(SuccessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

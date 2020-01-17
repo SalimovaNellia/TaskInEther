@@ -17,14 +17,16 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectMediafile(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                (click)="selectMediafile(row)"
+                (dblclick)="onDbClick(row)"
+                [ngClass]="{'selectedRow': mediafilesService.getSelectedMediafile() == row}"
+    ></tr>
   </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 5]" showFirstLastButtons></mat-paginator>
 </div>
 
 <div class="btn-wrap">
   <button mat-raised-button color="primary"
-          [disabled]="!selectedMediafile"
-          (click)="onMediafileChoosed()">Применить выбранный файл</button>
+          [disabled]="!mediafilesService.getSelectedMediafile()"
+          routerLink="/ether-settings">Применить выбранный файл</button>
 </div>

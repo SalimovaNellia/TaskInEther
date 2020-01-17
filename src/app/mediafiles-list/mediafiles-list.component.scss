@@ -7,6 +7,10 @@ table {
   }
 
   tr.mat-row:hover {
+    background-color: rgba(158, 158, 158, 0.3);;
+  }
+
+  tr.selectedRow {
     background-color: rgba(66, 135, 245, 0.4);
     cursor: pointer;
   }

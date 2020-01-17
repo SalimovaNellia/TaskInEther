@@ -13,24 +13,24 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import { MatStepperModule } from '@angular/material/stepper';
-import { EtherTaskStepsComponent } from './ether-task-steps/ether-task-steps.component';
 import { DurationComponent } from './duration/duration.component';
 import { FormatDurationPipe } from './pipe/format-duration.pipe';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TimeComponent } from './time/time.component';
 import { FormatTimePipe } from './pipe/format-time.pipe';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EtherFormComponent,
     MediafilesListComponent,
-    EtherTaskStepsComponent,
     DurationComponent,
     FormatDurationPipe,
     TimeComponent,
     TimeComponent,
-    FormatTimePipe
+    FormatTimePipe,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,

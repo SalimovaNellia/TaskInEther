@@ -8,7 +8,6 @@ export class FormatTimePipe implements PipeTransform {
 
   transform(timeInMs: any): string {
     if (timeInMs != 0 && !timeInMs) {
-      console.log(timeInMs)
       return '-';
     }
     if (timeInMs > this.dayInMillis) {
@@ -23,6 +22,7 @@ export class FormatTimePipe implements PipeTransform {
 
     let minutes = timeInMs % 60;
     let hours = (timeInMs - minutes) / 60;
+    hours %= 24;
 
     let millisecondsString = milliseconds.toString();
     if (milliseconds > 99){

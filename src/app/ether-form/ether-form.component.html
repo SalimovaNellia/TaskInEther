@@ -4,7 +4,7 @@
   <p class="fileType">{{selectedMediafile.type}}</p>
   <p class="fileDuration">{{selectedMediafile.duration | formatDuration}}</p>
 
-    <button mat-raised-button color="primary">
+    <button mat-raised-button color="primary" routerLink="../mediafiles">
       <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
     </button>
 </div>
@@ -14,11 +14,6 @@
   <div class="setting">
     <h2>Воспроизвести с</h2>
     <app-duration [duration]="mediaOffset" (onDurationChange)="onMediaOffsetChanged($event)"></app-duration>
-
-      <input
-        mdInput
-        type="number"
-        id="myNumber"/>
   </div>
 
  <div class="setting">
@@ -26,15 +21,15 @@
 
  <div class="setting">
    <h2>Воспроизведение по</h2>
-   <app-duration [duration]="playUntil"></app-duration>
+   <app-duration [duration]="playUntil" (onDurationChange)="onPlayUntilChanged($event)"></app-duration>
  </div>
 
   <div class="setting">
-    <h2>Hачало в эфире</h2>
+    <h2>Начало в эфире</h2>
     <app-time [time]="startInEther.getTime()" (onTimeChange)="onStartInEtherChanged($event)"></app-time>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="startPicker" [value]="startInEther"  (dateChange)="on" >
+      <input matInput [matDatepicker]="startPicker" [value]="startInEther" (dateChange)="onStartInEtherDateChanged($event.value)" >
       <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
       <mat-datepicker #startPicker></mat-datepicker>
     </mat-form-field>
@@ -60,7 +55,12 @@
 </div>
 
 <div class="btn-wrap">
-  <button mat-raised-button color="primary">Сохранить</button>
+  <button mat-raised-button
+          color="primary"
+          (click)="sendSettings()"
+  >Сохранить</button>
 
-  <button mat-raised-button color="primary">Отмена</button>
+  <button mat-raised-button
+          color="primary"
+          routerLink="../mediafiles">Отмена</button>
 </div>

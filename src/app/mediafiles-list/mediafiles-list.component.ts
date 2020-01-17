@@ -1,8 +1,8 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MedifilesService } from '../services/medifiles.service';
 import { Mediafile } from '../models/Mediafile';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mediafiles-list',
@@ -10,37 +10,32 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./mediafiles-list.component.scss']
 })
 export class MediafilesListComponent implements OnInit {
-  @Output() mediafileSelected = new EventEmitter<Mediafile>();
 
-  selectedMediafile: Mediafile;
   mediafiles: Array<Mediafile>;
   displayedColumns: string[] = ['type', 'title', 'duration'];
-  dataSource = new MatTableDataSource<Mediafile>(this.mediafiles);
 
-  constructor(public mediafilesService: MedifilesService) { }
-
- @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  constructor(public mediafilesService: MedifilesService,
+              private router: Router) { }
 
   ngOnInit() {
     this.mediafilesService.getMediafiles()
+      .pipe(
+        map((array: Mediafile[]) => {
+          return array.map(m => {
+            m.duration = Math.floor (m.duration / 10) * 10 || m.duration;
+            return m;
+          })
+        }
+      ))
       .subscribe(mediafiles => this.mediafiles = mediafiles);
-
-    this.dataSource.paginator = this.paginator;
-  }
-
-
-  onSelectMedifile(){
-
   }
 
   selectMediafile(mediafile: Mediafile) {
-    console.log('click')
-    this.selectedMediafile = mediafile;
+    this.mediafilesService.setMediafile(mediafile);
   }
 
-  onMediafileChoosed() {
-    this.mediafileSelected.next(this.selectedMediafile);
+  onDbClick(mediafile: Mediafile) {
+    this.selectMediafile(mediafile);
+    this.router.navigate(['/ether-settings']);
   }
 }
-
-// json server, mediafiles.service - getfiles, html of media files-list component
