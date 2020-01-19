@@ -24,12 +24,14 @@ export class FormatDurationPipe implements PipeTransform {
       millisecondsString = milliseconds.toString().substring(0, 2);
     } else if (milliseconds < 10) {
       millisecondsString = '0' + milliseconds;
+    } else {
+      millisecondsString = "0" + milliseconds.toString();
+      millisecondsString = millisecondsString.substring(2);
     }
 
     return (hours > 9 ? hours : '0' + hours) + ':' +
       (minutes > 9 ? minutes : '0' + minutes) + ':' +
-      (seconds > 9 ? seconds : '0' + seconds) + ':' +
-      millisecondsString;
+      (seconds > 9 ? seconds : '0' + seconds);
   }
 
 }

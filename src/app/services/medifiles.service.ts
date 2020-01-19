@@ -30,8 +30,6 @@ export class MedifilesService {
   }
 
   public postSettings(settings: EtherTask) {
-    console.log("post")
     return this.httpClient.post<Array<Mediafile>>(this.REST_API_SERVER + '/mediafiles', settings);
-
   }
 }

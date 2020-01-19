@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Mediafile } from '../models/Mediafile';
-import { createDate } from '../date/date-utils';
 import { MedifilesService } from '../services/medifiles.service';
 import { Router } from '@angular/router';
 
@@ -21,36 +20,28 @@ export class EtherFormComponent implements OnInit {
   startInEther: Date;
 
   constructor(public mediafilesService: MedifilesService,
-              private router: Router) { }
-
-  ngOnInit() {
+              private router: Router) {
     if (!this.mediafilesService.getSelectedMediafile()){
       this.router.navigate(['/mediafiles'])
     }
+  }
 
+  ngOnInit() {
     this.selectedMediafile = this.mediafilesService.getSelectedMediafile();
     this.durationInEther = this.selectedMediafile.duration;
-    console.log(this.selectedMediafile);
-    this.startInEther = this.getEtherStartTime();
+    this.startInEther = new Date();
     this.playUntil = this.selectedMediafile.duration;
-    this.endInEther = createDate(this.startInEther.getTime());
-
+    this.endInEther = new Date(this.startInEther.getTime() + this.selectedMediafile.duration);
   }
 
   onMediaOffsetChanged(step: number) {
     this.durationInEther -= step;
-    this.endInEther = createDate(this.endInEther.getTime() - step);
-  }
-
-  private getEtherStartTime(): Date {
-    let now  = createDate();
-    now.setHours( now.getHours());
-    now.setDate(now.getDate());
-    return now;
+    this.mediaOffset += step;
+    this.endInEther = new Date(this.endInEther.getTime() - step);
   }
 
   onStartInEtherChanged(step: number) {
-    this.endInEther = createDate(this.endInEther.getTime() + step);
+    this.endInEther = new Date(this.endInEther.getTime() + step);
   }
 
   onStartInEtherDateChanged(startDate: Date) {
@@ -58,10 +49,9 @@ export class EtherFormComponent implements OnInit {
   }
 
   onPlayUntilChanged(step: number) {
-    if (this.durationInEther + step <= this.selectedMediafile.duration) {
-      this.durationInEther += step;
-      this.endInEther = createDate(this.endInEther.getTime() + step);
-    }
+    this.durationInEther += step;
+    this.playUntil += step;
+    this.endInEther = new Date(this.endInEther.getTime() + step);
   }
 
   sendSettings() {
@@ -74,6 +64,14 @@ export class EtherFormComponent implements OnInit {
     this.mediafilesService.postSettings(settings);
 
     this.router.navigate(['./success']);
+  }
+
+  get mediaOffsetMaxValue(): number {
+    return  this.selectedMediafile.duration > this.playUntil ? this.playUntil : this.selectedMediafile.duration
+  }
+
+  get playUntilMinValue(): number {
+    return this.mediaOffset > 0 ? this.mediaOffset : 0;
   }
 }
 

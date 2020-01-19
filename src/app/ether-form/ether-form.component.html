@@ -13,7 +13,9 @@
 
   <div class="setting">
     <h2>Воспроизвести с</h2>
-    <app-duration [duration]="mediaOffset" (onDurationChange)="onMediaOffsetChanged($event)"></app-duration>
+    <app-duration [duration]="mediaOffset"
+                  [max]="mediaOffsetMaxValue"
+                  (onDurationChange)="onMediaOffsetChanged($event)"></app-duration>
   </div>
 
  <div class="setting">
@@ -21,7 +23,10 @@
 
  <div class="setting">
    <h2>Воспроизведение по</h2>
-   <app-duration [duration]="playUntil" (onDurationChange)="onPlayUntilChanged($event)"></app-duration>
+   <app-duration [duration]="playUntil"
+                 [max]="selectedMediafile.duration"
+                 [min]="playUntilMinValue"
+                 (onDurationChange)="onPlayUntilChanged($event)"></app-duration>
  </div>
 
   <div class="setting">

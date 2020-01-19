@@ -8,6 +8,7 @@
     { "id": 5, "type": "Видео", "title": "Video-4", "duration": 842585 },
     { "id": 6, "type": "Аудио", "title": "Audio-3" },
     { "id": 7, "type": "Видео", "title": "Video-5", "duration": 234052 },
-    { "id": 8, "type": "Видео", "title": "Video-6", "duration": 2340522 }
+    { "id": 8, "type": "Видео", "title": "Video-6", "duration": 2340522 },
+    { "id": 8, "type": "Видео", "title": "Video-7", "duration": 92525258 }
   ]
 }
