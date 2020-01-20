@@ -9,7 +9,7 @@ export class TimeComponent implements OnInit {
   @Input() time: number;
   @Output() onTimeChange = new EventEmitter<number>();
 
-  private step = 120000;
+  private step = 1_000;
 
   private dayInMillis = 24 * 60 * 60 * 1000;
 
