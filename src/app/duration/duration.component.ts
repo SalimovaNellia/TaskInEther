@@ -11,7 +11,7 @@ export class DurationComponent implements OnInit {
   @Input() min: number = 0;
   @Output() onDurationChange = new EventEmitter<number>();
 
-  private step = 120000;
+  private step = 1_000;
 
   constructor() { }
 
